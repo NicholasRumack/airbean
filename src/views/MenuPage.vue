@@ -43,6 +43,9 @@ h5{
 .price{
     font-size: 23;
 }
+.nav{
+	position: fixed;
+}
 .pinkHeader{
   width: 375px;
   height: 113px;

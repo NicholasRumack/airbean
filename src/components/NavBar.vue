@@ -5,7 +5,7 @@
 </div>
 <div v-else-if="!showNav">
 <button>click</button>
-</div>
+
 <div class="nav">
     <nav>
     <router-link tag="li" to="MenuPage">Meny</router-link>
@@ -17,18 +17,17 @@
     <router-link tag="li" to="Status">Orderstatus</router-link>
 </nav>
 </div>
+</div>
 </div>    
 </template>
 <script>
 export default {
-    	data(){
+	data(){
 		return{
 			showNav: true
 		}
 	},
-/* 	components:{
-		NavBar
-	} */
+
 }
 </script>
 <style scoped>
@@ -38,6 +37,7 @@ nav{
     width: 375px;
     height: 417px;
     padding-top: 250px;
+	position: fixed;
 }
 nav li  {
     font: white;
