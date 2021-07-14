@@ -22,3 +22,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+15/3
+Project started and the base is being built. Mostly the basic design and routing.
