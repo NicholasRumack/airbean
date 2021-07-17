@@ -42,7 +42,7 @@ nav{
 nav li  {
     font: white;
     list-style: none;
-    font-size: 32px;
+	font-size: 32px;
 }
 hr {
     width: 48px;

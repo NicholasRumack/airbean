@@ -26,7 +26,7 @@ export default {
 }
 </script>
 <style>
-.menuPage {
+.MenuPage {
     background-color: #F3E4E1;
     width: 375px;
     min-height: 839px;
@@ -44,7 +44,7 @@ h5{
     font-size: 23;
 }
 .nav{
-	position: fixed;
+	position: fixed; 
 }
 .pinkHeader{
   width: 375px;

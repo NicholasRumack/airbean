@@ -25,3 +25,11 @@ export default {
 	}
 }
 </script>
+<style scoped>
+ul {
+	list-style-type: none;
+}
+div {
+	background-color: #F3E4E1;
+}
+</style>
