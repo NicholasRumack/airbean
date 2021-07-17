@@ -6,8 +6,16 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
 	state: { // = data
-		products: [],
-		cart: []
+		cart: [],
+		products: [
+		{
+			name: "Black Coffee",
+			price: 2.49,
+			desc: "plain black coffee",
+			type: "medium",
+			details: "it's just a regular cup of coffee"		
+		}
+		]
 	},
 	getters: {// = computed properties
 		productsCount (){

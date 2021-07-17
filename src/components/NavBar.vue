@@ -35,7 +35,7 @@ nav{
     background-color: #2F2926;
     font: white;
     width: 375px;
-    height: 417px;
+    min-height: 417px;
     padding-top: 250px;
 	position: fixed;
 }

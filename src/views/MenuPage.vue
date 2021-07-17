@@ -1,12 +1,13 @@
 <template>
 <div class="MenuPage">
+    <NavBar/>
     <img src="@/assets/pink-header.png" class="pinkHeader">
         <h1>Meny</h1>
     <img src="" alt="">
 	<ProductList/>
     <img src="@/assets/pink-footer.png" class="pinkFooter">
 	<div class="nav">
-    <NavBar/>
+    
 	</div>
 </div>    
 </template>

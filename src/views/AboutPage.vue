@@ -1,6 +1,7 @@
 <template>
   <div class="AboutPage">
     <img src="@/assets/pink-header.png" class="pinkHeader">
+     <NavBar/>
     <div class="description">
       <h1>Vårt Kaffe</h1>
       <h4>Pumpkin spice mug, barista cup, sit macchiato, kopi-luwak, doppio, grounds dripper, crema, strong whipped, variety extra iced id lungo half and half mazagran. Pumpkin spice.</h4>
@@ -15,7 +16,7 @@
       <h3>Eva Cortado</h3>
       <p class="ceoTitle">VD &amp; Grundare</p>
       <img src="@/assets/pink-footer.png" class="pinkFooter">
-    <NavBar/>
+   
   </div>
 </template>
 

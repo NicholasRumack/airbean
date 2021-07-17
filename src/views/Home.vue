@@ -1,7 +1,8 @@
 <template>
   <div class="home">
-    <Landing/>
     <NavBar/>
+    <Landing/>
+    
   </div>
 </template>
 
