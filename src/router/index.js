@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import MenuPage from '../views/MenuPage.vue'
 import AboutPage from '../views/AboutPage.vue'
 import Status from '../views/Status.vue'
+import Profile from '../views/Profile.vue'
 
 import Landing from '../components/Landing.vue'
 import RegisterForm from '../components/RegisterForm.vue'
@@ -40,6 +41,11 @@ const routes = [
     path: '/Status',
     name: 'Status',
     component: Status
+  },
+  {
+    path: '/Profile',
+    name: 'Profile',
+    component: Profile
   },
 ]
 

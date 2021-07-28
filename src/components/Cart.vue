@@ -1,13 +1,15 @@
 <template>
     <div>
-        <Cart/>
+        <div>{{coffee.name}}</div>
+        <div>{{coffee.quantity}}</div>
+        <div>{{coffee.price}}</div>
     </div>
 </template>
 <script>
-import Cart from '@/components/Cart.vue'
+
 export default {
-    components: {
-        Cart
-    },
+    props:{
+		coffee: Object
+	}
 }
 </script>

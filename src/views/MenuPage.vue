@@ -1,10 +1,21 @@
 <template>
 <div class="MenuPage">
-    <NavBar/>
+   
     <img src="@/assets/pink-header.png" class="pinkHeader">
-        <h1>Meny</h1>
-    <img src="" alt="">
-	<ProductList/>
+    <NavBar/>    
+	
+	<h1>Meny</h1>
+
+	<div v-for="coffee in coffee" :key="coffee.id">
+
+		<ProductList @addToCart="addToCart" :coffee="coffee"/>
+	</div>
+	
+	<div @click="active = !active">
+		<CartIcon />
+	</div>
+	
+	
     <img src="@/assets/pink-footer.png" class="pinkFooter">
 	<div class="nav">
     
@@ -12,17 +23,42 @@
 </div>    
 </template>
 <script>
+
 import NavBar from '@/components/NavBar'
 import ProductList from '@/components/ProductList'
+import CartIcon from '@/components/CartIcon'
+
 
 
 export default {
+	data(){
+		return{
+			active: false,
+			productData: {},
+			title: '',
+			selected: ''
+		}
+	},
     name: 'MenuPage',
+
+	computed:{
+		coffee(){
+			return this.$store.getters.coffee;
+		},
+	},
 
     components: {
 		NavBar,
-		ProductList
+		ProductList,
+		CartIcon,
+
   },
+
+     methods:{
+         addToCart(coffee){
+             this.$store.commit('pushCoffeeToCart', coffee )
+          }
+      },
 
 }
 </script>
@@ -31,6 +67,9 @@ export default {
     background-color: #F3E4E1;
     width: 375px;
     min-height: 839px;
+}
+.addButton{
+	max-height: 2em;
 }
 h1 {
     font-size: 42px;
@@ -50,6 +89,7 @@ h5{
 .pinkHeader{
   width: 375px;
   height: 113px;
+  z-index: -2;
 }
 .pinkFooter{
   width: 375px;

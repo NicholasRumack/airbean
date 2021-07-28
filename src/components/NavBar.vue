@@ -1,7 +1,7 @@
 <template>
 <div @click="showNav = !showNav">
 <div v-if="showNav">
-	<button>click</button>
+	<img src="@/assets/hamburgerMenu.png" alt="">
 </div>
 <div v-else-if="!showNav">
 <button>click</button>
@@ -47,5 +47,8 @@ nav li  {
 hr {
     width: 48px;
     opacity: 0.2;
+}
+img{
+	max-width: 3em;
 }
 </style>
