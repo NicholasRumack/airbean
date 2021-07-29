@@ -4,7 +4,7 @@
 	<img src="@/assets/hamburgerMenu.png" alt="">
 </div>
 <div v-else-if="!showNav">
-<button>click</button>
+
 
 <div class="nav">
     <nav>

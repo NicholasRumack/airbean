@@ -1,19 +1,22 @@
 <template>
 <div class="MenuPage">
-   
-    <img src="@/assets/pink-header.png" class="pinkHeader">
-    <NavBar/>    
+	<div>
+		<img src="@/assets/pink-header.png" class="pinkHeader">
+	</div>
+	<div class="nav">
+		<NavBar/>    
+	</div>
+	<div @click="active = !active">
+		<CartIcon />
+	</div>
 	
 	<h1>Meny</h1>
 
 	<div v-for="coffee in coffee" :key="coffee.id">
-
 		<ProductList @addToCart="addToCart" :coffee="coffee"/>
 	</div>
 	
-	<div @click="active = !active">
-		<CartIcon />
-	</div>
+	
 	
 	
     <img src="@/assets/pink-footer.png" class="pinkFooter">
