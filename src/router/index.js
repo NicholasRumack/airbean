@@ -7,7 +7,6 @@ import Status from '../views/Status.vue'
 import Profile from '../views/Profile.vue'
 
 import Landing from '../components/Landing.vue'
-import RegisterForm from '../components/RegisterForm.vue'
 
 Vue.use(VueRouter)
 
@@ -33,14 +32,12 @@ const routes = [
     component: AboutPage
   },
   {
-    path: '/RegisterForm',
-    name: 'RegisterForm',
-    component: RegisterForm
-  },
-  {
-    path: '/Status',
+    path: '/status',
     name: 'Status',
-    component: Status
+    component: Status,
+	meta: {
+		requiresAuth: true
+	}
   },
   {
     path: '/Profile',
@@ -50,7 +47,21 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  routes
-})
-
-export default router
+	mode: 'history',
+	base: process.env.BASE_URL,
+	routes
+  })
+  router.beforeEach((to, from, next) => {
+	if(to.meta.requiresAuth){
+		if (localStorage.User){
+			next()
+	}
+	else{
+		if (from !== '/Profile')
+		next('/Profile') 
+	}
+	}else{
+		next()
+}
+  })
+  export default router

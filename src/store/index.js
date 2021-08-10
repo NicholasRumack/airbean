@@ -15,35 +15,35 @@ export default new Vuex.Store({
 		{
 			id: uuid.v4(),
 			name: "Black Coffee",
-			price: 2.49,
+			price: 2,
 			beanType: "words",
 			info: "words", 
 		},
 		{
 			id: uuid.v4(),
 			name: "Coffee",
-			price: 3.49,
+			price: 3,
 			beanType: "words",
 			info: "words", 
 		},
 		{
 			id: uuid.v4(),
 			name: "Espresso",
-			price: 4.49,
+			price: 4,
 			beanType: "words",
 			info: "words", 
 		},
 		{
 			id: uuid.v4(),
 			name: "Latte",
-			price: 5.49,
+			price: 5,
 			beanType: "words",
 			info: "words", 
 		},
 		{
 			id: uuid.v4(),
 			name: "Frappe",
-			price: 6.49,
+			price: 6,
 			beanType: "words",
 			info: "words", 
 		},
@@ -69,23 +69,7 @@ export default new Vuex.Store({
 		},
 	},
 	
-	actions: {
-/* 		fetchProducts (context) {
-			// = make the call
-			// run setProducts mutation
-			shop.getProducts(products => {
-				context.commit('setProducts', products)
-			})
-		},  */
-		setUser(context, user) {
-			context.commit("setUser", user)
-			if (!localStorage.User){
-		
-				localStorage.setItem("User", JSON.stringify(user));
-			}
-		}
-
-},
+	
 	mutations: {
 		setUser(state, payload) {
 			state.user.push(payload);
@@ -103,7 +87,6 @@ export default new Vuex.Store({
 			product.totalPrice = product.quantity * product.price;
 		} else {
 			state.cart.push(coffee)
-			console.log(coffee)
 			Vue.set(coffee, 'quantity', 1);
 			Vue.set(coffee, 'totalPrice', coffee.price);
 		}
@@ -120,8 +103,8 @@ export default new Vuex.Store({
 		}
 		state.user.push(order)
 	},
-},
-removeItem(state, products){
+
+/* removeItem(state, products){
 	let product = state.cart.find(item => item.id == products.id );
 	if(product){
 		product.quantity--;
@@ -131,11 +114,9 @@ removeItem(state, products){
 
 			state.cart.splice(index, 1);
 		}  
-	} else { 
-		console.log(products)
-	}
+	} else 
 		state.cartCount--;
-  },
+  }, */
   createOrderNum(state){
 	const translator = short()
 	state.orderNumber = translator.new();
@@ -162,7 +143,19 @@ removeItem(state, products){
 		state.date = null;
 		state.cartCount = 0;
 		state.user = [];
-  },
+  },},
+  actions: {
+	setUser(context, user) {
+		context.commit("setUser", user)
+		if (!localStorage.User){
+	
+			localStorage.setItem("User", JSON.stringify(user));
+		}
+	}
 
+},
+  modules:{
+
+}
 
 })
