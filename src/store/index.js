@@ -16,43 +16,43 @@ export default new Vuex.Store({
 			id: uuid.v4(),
 			name: "Black Coffee",
 			price: 2,
-			beanType: "words",
+			beanType: "Type A",
 			info: "words", 
 		},
 		{
 			id: uuid.v4(),
 			name: "Coffee",
 			price: 3,
-			beanType: "words",
+			beanType: "Type A",
 			info: "words", 
 		},
 		{
 			id: uuid.v4(),
 			name: "Espresso",
 			price: 4,
-			beanType: "words",
+			beanType: "Type A",
 			info: "words", 
 		},
 		{
 			id: uuid.v4(),
 			name: "Latte",
 			price: 5,
-			beanType: "words",
+			beanType: "Type B",
 			info: "words", 
 		},
 		{
 			id: uuid.v4(),
 			name: "Frappe",
 			price: 6,
-			beanType: "words",
+			beanType: "Type B",
 			info: "words", 
 		},
 		],
-		cart: [],
-		cartCount: 0,
-		order: null,
-		date: null,
-		user: [],
+			cart: [],
+			cartCount: 0,
+			order: null,
+			date: null,
+			user: [],
 	},
 	getters: {// = computed properties
 		coffee: state => {
@@ -104,33 +104,20 @@ export default new Vuex.Store({
 		state.user.push(order)
 	},
 
-/* removeItem(state, products){
-	let product = state.cart.find(item => item.id == products.id );
-	if(product){
-		product.quantity--;
-		product.totalPrice = product.quantity * product.price; 
-		if(product.quantity === 0){
-			let index = state.cart.findIndex((products) => products.id == product.id);
-
-			state.cart.splice(index, 1);
-		}  
-	} else 
-		state.cartCount--;
-  }, */
-  createOrderNum(state){
-	const translator = short()
-	state.orderNumber = translator.new();
-	state.date = orderdate;
+	createOrderNum(state){
+		const translator = short()
+		state.orderNumber = translator.new();
+		state.date = orderdate;
   },
-  pushToOrders(state){
-	const date = new Date()
-	let order = {
-		cart: state.cart,
-		orderNumber: state.orderNumber,
-		date: state.date,
-		time: date.getTime()
+	pushToOrders(state){
+		const date = new Date()
+		let order = {
+			cart: state.cart,
+			orderNumber: state.orderNumber,
+			date: state.date,
+			time: date.getTime()
 	}
-	state.user.push(order)
+		state.user.push(order)
  
 	if(!localStorage.orders){
 		localStorage.orders = JSON.stringify([])
@@ -143,19 +130,14 @@ export default new Vuex.Store({
 		state.date = null;
 		state.cartCount = 0;
 		state.user = [];
-  },},
+	},
+},
   actions: {
 	setUser(context, user) {
 		context.commit("setUser", user)
-		if (!localStorage.User){
-	
+		if (!localStorage.User){	
 			localStorage.setItem("User", JSON.stringify(user));
 		}
 	}
-
 },
-  modules:{
-
-}
-
 })

@@ -12,10 +12,35 @@
 			<div class="menu">
 				<h1>Meny</h1>
 			</div>
-			<div class="products" v-for="coffee in coffee" :key="coffee.id">
+			<select v-model="selected" class="dropdown">
+				<option disabled value="">Bean Type</option>
+				<option>All Beans</option>
+				<option>Bean Type A</option>
+				<option>Bean Type B</option>
+			</select>
+		<div v-if="selected == 'Bean Type A'">
+			<div  v-for="coffee in typeA" :key="coffee.id" >
+				<ProductList
+				@addToCart="addToCart"
+				:coffee="coffee"/>
+			</div>
+		</div>  
+		<div v-else-if="selected == 'Bean Type B'">
+			<div v-for="coffee in typeB" :key="coffee.id" >
 				<ProductList @addToCart="addToCart" :coffee="coffee"/>
 			</div>
-				<img src="@/assets/pink-footer.png" class="pinkFooter">
+		</div>
+		<div v-else-if="selected == 'All Beans'">
+			<div v-for="coffee in coffee" :key="coffee.id" >
+				<ProductList @addToCart="addToCart" :coffee="coffee"/>
+			</div>
+		</div>
+		<div v-else>
+			<div v-for="coffee in coffee" :key="coffee.id" >
+				<ProductList @addToCart="addToCart" :coffee="coffee"/>
+			</div>
+		</div>
+			<img src="@/assets/pink-footer.png" class="pinkFooter">
 		</div>
 	</div>
 </div>	  
@@ -41,6 +66,12 @@ export default {
 		coffee(){
 			return this.$store.getters.coffee;
 		},
+		typeA(){
+			return this.$store.getters.sortByBean('Type A');
+		},
+		typeB(){
+			return this.$store.getters.sortByBean('Type B');
+		}
 	},
 
     components: {
